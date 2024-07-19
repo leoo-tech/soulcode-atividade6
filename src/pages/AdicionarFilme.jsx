@@ -16,8 +16,8 @@ function AdicionarFilme() {
         data.idUsuario = usuario.uid;
         addFilme(data)
         .then(() => {
-        toast.success("Filme adicionado com sucesso!");
-        navigate("/filmes");
+            toast.success("Filme adicionado com sucesso!");
+            navigate("/filmes");
         })
         .catch(() => {
             toast.error("Erro ao adicionar o filme!");
@@ -51,7 +51,7 @@ function AdicionarFilme() {
                     className="form-control" 
                     {...register("diretor", {required: true, maxLength: 200})}
                     />
-                    {errors.titulo && <small className="invalid">O !</small>}
+                    {errors.diretor && <small className="invalid">O !</small>}
                 </div>
                 <div>
                     <label htmlFor="dataConclusao">Ano de lançamento</label>

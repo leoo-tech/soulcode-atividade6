@@ -7,15 +7,15 @@ export async function addFilme(data) {
     await addDoc(filmesCol, data);
 }
 
-// export async function getFilmes() {
-//     const snapshot = await getDocs(filmesCol);
-//     const filmes = [];
-//     snapshot.forEach(doc => {
-//         filmes.push({...doc.data(), id: doc.id })
-//     });
+export async function getFilmes() {
+    const snapshot = await getDocs(filmesCol);
+    const filmes = [];
+    snapshot.forEach(doc => {
+        filmes.push({...doc.data(), id: doc.id })
+    });
     
-//     return filmes;
-// }
+    return filmes;
+}
 
 export async function deleteFilme(id) {
     const filmeDoc = doc(filmesCol, id);

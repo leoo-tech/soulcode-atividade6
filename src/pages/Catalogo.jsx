@@ -1,6 +1,6 @@
 import { Badge, Button, Card, Container } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { deleteFilme, getFilmesUsuario } from "../firebase/tarefas";
+import { deleteFilme, getFilmes, getFilmesUsuario } from "../firebase/tarefas";
 import { UsuarioContext } from "../contexts/UsuarioContext";
 import { useState, useEffect, useContext } from "react";
 import Loader from "../components/Loader";
@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 
 function Catalogo() {
-    const[filmes, setFilmes] = useState(null);
+    const [filmes, setFilmes] = useState(null);
     const navigate = useNavigate();
     const usuario = useContext(UsuarioContext);
     
