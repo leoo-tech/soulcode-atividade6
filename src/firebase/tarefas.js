@@ -40,7 +40,7 @@ export async function getFilmesUsuario(idUsuario) {
     const filmes = [];
 
     snapshot.forEach((doc) => {
-        filmes.push({...doc.data, id: doc.id});
+        filmes.push({...doc.data(), id: doc.id});
     });
 
     return filmes;
