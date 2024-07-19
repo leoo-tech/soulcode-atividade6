@@ -17,7 +17,7 @@ function Login() {
   function entrar(data) {
     loginUsuario(data.email, data.senha)
       .then(() => {
-        toast.success('Bem-vindo(a)!');
+        toast.success(`Bem-vindo(a)! ${data.nome}`);
         navigate('/filmes');
       })
       .catch(() => {
