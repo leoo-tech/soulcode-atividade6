@@ -26,3 +26,12 @@ h1 {
   gap: 1rem;
   margin-top: 1rem;
 }
+
+.invalid {
+  color: red;
+}
+
+.form-section {
+  width: 320px;
+  margin: 16px auto; 
+}
