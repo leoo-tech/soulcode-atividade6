@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { logout } from "../firebase/auth";
-
-
+import { useContext } from "react";
+import { UsuarioContext } from "../contexts/UsuarioContext";
 
 function Menu() {
-
+    const usuario = useContext(UsuarioContext);
     const navigate = useNavigate();
 
     function handleLogout(){
@@ -26,29 +26,29 @@ function Menu() {
                                        home
                                     </span>
                                </Link>
+                               {usuario && <span className="text-light nav-link">{usuario.displayName}</span>}
+                                {!usuario && 
                                 <Link
-                                    className="nav-link inicio topo" 
+                                    className="nav-link" 
                                     to="/login">
                                     Login
-                                </Link>
-                                    <Link 
-                                    className="nav-link inicio topo" 
+                                </Link>}
+                                {!usuario && 
+                                <Link 
+                                    className="nav-link" 
                                     to= "cadastro">
                                     Cadastro
-                                </Link>
+                                </Link>}
+                                {usuario &&
                                 <Link  
-                                    className="nav-link inicio topo" 
-                                    to="/editarfilme">
-                                    EditarFilme
-                                </Link>
-                                <Link  
-                                    className="nav-link inicio topo" 
-                                    to="/catalogo">
-                                    Catalogo
-                                </Link>
+                                className="nav-link" 
+                                to="/filmes">
+                                Catalogo
+                                </Link>}
+                                {usuario && 
                                 <Button variant="outline-light" onClick={handleLogout}>
                                 Sair
-                                </Button>
+                                </Button>}
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

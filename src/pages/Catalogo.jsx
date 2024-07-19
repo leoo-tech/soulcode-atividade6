@@ -42,9 +42,8 @@ function Catalogo() {
     return (
         <main>
             <Container className="mt-2">
-                <h1>Seu catálogo de filmes</h1>
-                <hr />
-                <Link className="btn btn-outline-primary" to="/filmes/adicionar">Adicionar filme</Link>
+                <h1 className="m-5">Seu catálogo de filmes</h1>
+                <Link className="btn btn-outline-primary ms-5" to="/filmes/adicionar">Adicionar filme</Link>
                 {filmes ? <section className="mt-3">
                     {filmes.map((filme) => {
                         return <Card key={filme.id} className="m-5">

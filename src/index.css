@@ -12,13 +12,16 @@
   color: whitesmoke;
   padding: 6px;
   margin-right: 0px;
-  margin-bottom: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
 }
 
 body {
   background-color: #212121;
   font-family: monospace;
   color: antiquewhite;
+  width:100%;
 }
 
 .icone-home{
@@ -43,8 +46,8 @@ body {
 }
 
 .imagem-home{
-  height: 629px;
-  width: 210vh;
+  height: 100%;
+  width: 100%;
 }
 
 .buttons {

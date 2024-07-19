@@ -5,9 +5,9 @@ import Catalogo from "./pages/Catalogo";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
-// import NotFound from "./pages/NotFound";
-// import Menu from './components/Menu';
-// import Footer from './components/Rodape';
+import NotFound from "./pages/NotFound";
+import Menu from './components/Menu';
+import Footer from './components/Rodape';
 import { Toaster } from 'react-hot-toast';
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
@@ -44,7 +44,7 @@ function App() {
     <>
       <UsuarioContext.Provider value={usuarioLogado}>
         <BrowserRouter>
-          {/* <Menu /> */}
+          <Menu />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/filmes/adicionar" element={<AdicionarFilme />} />
@@ -52,9 +52,9 @@ function App() {
             <Route path="/filmes" element={<Catalogo />} />
             <Route path='/login' element={<Login />} />
             <Route path='/cadastro' element={<Cadastro />} />
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </BrowserRouter>
         <Toaster position="bottom-rigth" />
       </UsuarioContext.Provider >
