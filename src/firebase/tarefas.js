@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "./config";
 
 export const filmesCol = collection(db,"filmes");
@@ -7,15 +7,15 @@ export async function addFilme(data) {
     await addDoc(filmesCol, data);
 }
 
-export async function getFilmes() {
-    const snapshot = await getDocs(filmesCol);
-    const filmes = [];
-    snapshot.forEach(doc => {
-        filmes.push({...doc.data(), id: doc.id })
-    });
+// export async function getFilmes() {
+//     const snapshot = await getDocs(filmesCol);
+//     const filmes = [];
+//     snapshot.forEach(doc => {
+//         filmes.push({...doc.data(), id: doc.id })
+//     });
     
-    return filmes;
-}
+//     return filmes;
+// }
 
 export async function deleteFilme(id) {
     const filmeDoc = doc(filmesCol, id);
@@ -34,5 +34,14 @@ export async function updateFilme(id, data) {
     await updateDoc(filmeDoc, data);
 }
 
+export async function getFilmesUsuario(idUsuario) {
+    const filtro = query(filmesCol, where("idUsuario", "==", idUsuario));
+    const snapshot = await getDocs(filtro);
+    const filmes = [];
 
+    snapshot.forEach((doc) => {
+        filmes.push({...doc.data, id: doc.id});
+    });
 
+    return filmes;
+}

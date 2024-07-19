@@ -1,7 +1,8 @@
 import { Badge, Button, Card, Container } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import { deleteFilme, getFilmes } from "../firebase/tarefas";
-import { useState, useEffect } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { deleteFilme, getFilmesUsuario } from "../firebase/tarefas";
+import { UsuarioContext } from "../contexts/UsuarioContext";
+import { useState, useEffect, useContext } from "react";
 import Loader from "../components/Loader";
 import toast from "react-hot-toast";
 
@@ -9,11 +10,14 @@ import toast from "react-hot-toast";
 function Catalogo() {
     const[filmes, setFilmes] = useState(null);
     const navigate = useNavigate();
+    const usuario = useContext(UsuarioContext);
     
     function carregarFilmes() {
-        getFilmes().then((resultados) => {
-            setFilmes(resultados);
-        })
+        if(usuario) {
+            getFilmesUsuario(usuario.uid).then((resultados) => {
+                setFilmes(resultados);
+            })
+        }
     }
 
     function deletarFilme(id) {
@@ -29,6 +33,10 @@ function Catalogo() {
     useEffect(() => {
         carregarFilmes();
     }, []);
+
+    if(usuario === null) {
+        return<Navigate to="/login"/>
+    }
 
     return (
         <Container className="mt-2">

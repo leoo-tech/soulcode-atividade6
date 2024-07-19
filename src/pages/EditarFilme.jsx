@@ -2,7 +2,9 @@ import { getFilme, updateFilme } from "../firebase/tarefas";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { UsuarioContext } from "../contexts/UsuarioContext";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 
 
@@ -11,6 +13,7 @@ function EditarFilme() {
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
     const navigate = useNavigate();
     const { id } = useParams();
+    const usuario = useContext(UsuarioContext);
 
     function carregarDado() {
         getFilme(id).then((filme) => {
@@ -33,6 +36,9 @@ function EditarFilme() {
         carregarDado();
     }, []);
 
+    if(usuario === null) {
+        return <Navigate to="/login"/>
+    }
 
     return (
         <main>

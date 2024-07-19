@@ -2,15 +2,18 @@ import { addFilme } from "../firebase/tarefas";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UsuarioContext } from "../contexts/UsuarioContext";
 
 
 function AdicionarFilme() {
     const { register, handleSubmit, formState: {errors}} = useForm();
-
     const navigate = useNavigate();
+    const usuario = useContext(UsuarioContext);
 
     function salvarFilme(data) {
+        data.idUsuario = usuario.uid;
         addFilme(data)
         .then(() => {
         toast.success("Filme adicionado com sucesso!");
@@ -21,6 +24,9 @@ function AdicionarFilme() {
         });
     }
 
+    if(usuario === null) {
+        return <Navigate to="/login"/>
+    }
 
     return (
         <main>
