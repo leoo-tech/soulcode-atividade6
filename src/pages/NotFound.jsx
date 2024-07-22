@@ -1,4 +1,5 @@
 import { Button } from 'react-bootstrap';
+import logo from "../../public/images/logo-imagem.jpg";
 
 function Notfound(){
     return(
@@ -7,6 +8,9 @@ function Notfound(){
             <Button  variant="secondary" NavLink href="/"> 
                 Volta para Inicio
             </Button>
+            <div className="imagem-notfound">
+                <img src={logo} alt="Imagem do emoji triste"/>
+            </div>
         </main>
         
     );
