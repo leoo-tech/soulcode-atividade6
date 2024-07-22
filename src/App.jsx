@@ -7,6 +7,9 @@ import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import NotFound from "./pages/NotFound";
 import Menu from './components/Menu';
+import Ajuda from './pages/Ajuda';
+import Privacidade from './pages/Privacidade';
+import Contato from './pages/Contato';
 import Footer from './components/Rodape';
 import { Toaster } from 'react-hot-toast';
 import { useEffect, useState } from "react";
@@ -41,24 +44,41 @@ function App() {
   // para os componentes filhos da aplicação
 
   return (
-    <>
+    <div className='App d-flex flex-column min-vh-100'>
       <UsuarioContext.Provider value={usuarioLogado}>
         <BrowserRouter>
-          <Menu />
+
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/filmes/adicionar" element={<AdicionarFilme />} />
-            <Route path="/filmes/editar/:id" element={<EditarFilme />} />
-            <Route path="/filmes" element={<Catalogo />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/cadastro' element={<Cadastro />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Layout> <Home /></Layout>} />
+            <Route path="/filmes/adicionar" element={<Layout> <AdicionarFilme /></Layout>} />
+            <Route path="/filmes/editar/:id" element={<Layout> <EditarFilme /></Layout>} />
+            <Route path="/filmes" element={<Layout><Catalogo /></Layout>} />
+            <Route path='/login' element={<Layout><Login /></Layout>} />
+            <Route path='/cadastro' element={<Layout><Cadastro /></Layout>} />
+            <Route path='/ajuda' element={<Layout><Ajuda /></Layout>} />
+            <Route path='/privacidade' element={<Layout><Privacidade /></Layout>} />
+            <Route path='/contato' element={<Layout><Contato /></Layout>} />
+            <Route path="*" element={<Layout><NotFound /></Layout>} />
           </Routes>
-          <Footer />
+
         </BrowserRouter>
         <Toaster position="bottom-rigth" />
       </UsuarioContext.Provider >
-    </>
+    </div>
+  );
+
+}
+
+
+function Layout({ children }) {
+  return (
+    <div className="d-flex flex-column flex-grow-1">
+      <Menu />
+      <main className="flex-grow-1">
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 }
 

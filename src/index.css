@@ -1,51 +1,79 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-.form-section{
+.form-section {
   width: 320px;
   margin: 16px auto;
 }
 
-.rodape{
-  display: flex;
-  justify-content:center;
-  background-color: cornflowerblue;
-  color: whitesmoke;
-  padding: 6px;
-  margin-right: 0px;
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-}
+
 
 body {
   background-color: #212121;
   font-family: monospace;
   color: antiquewhite;
-  width:100%;
+  width: 100%;
+  height: 100%;
 }
 
-.icone-home{
+.rodape {
+  background-color: cornflowerblue;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20vh;
+}
+
+.icone-home {
   font-size: 24px;
   color: white;
   padding: 8px;
 }
 
-.inicio{
-  background-color: cornflowerblue;
-  padding: 10px;
+.icone-home:hover {
+  color: black;
 }
 
-.topo{
+.icone-ajuda {
+  font-size: 24px;
+  color: white;
+  padding: 8px;
+}
+
+.icone-ajuda:hover {
+  color: black;
+}
+
+.icone-contato {
+  font-size: 24px;
+  color: white;
+  padding: 8px;
+}
+
+.icone-contato:hover {
+  color: black;
+}
+
+.inicio {
+  background-color: cornflowerblue;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.topo {
   color: white;
 }
 
-.home{
+.home {
   text-align: center;
-  height:629px;
-  
+  height: 629px;
+
 }
 
-.imagem-home{
+.imagem-home {
   height: 100%;
   width: 100%;
 }
@@ -63,5 +91,5 @@ body {
 
 .form-section {
   width: 320px;
-  margin: 16px auto; 
+  margin: 16px auto;
 }

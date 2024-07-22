@@ -1,14 +1,14 @@
-import imagem from "../../public/images/imagem.jpg";
+import imagem from "/images/imagem.jpg";
 
-function Home(){
-    
-    return(
+function Home() {
+
+    return (
         <main className="home">
             <div>
-                <img  className="imagem-home" src={imagem} alt="Imagem das Telas dos filmes" />
+                <img className="imagem-home" src={imagem} alt="Imagem das Telas dos filmes" />
             </div>
         </main>
-        
+
     );
 }
 
