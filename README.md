@@ -1,8 +1,35 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Já vi!
 
-Currently, two official plugins are available:
+Uma plataforma para catálogar os filmes que o usuário já assistiu ou deseja assistir!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicamos operações básicas de CRUD utilizando React e Firebase.
+
+O projeto possui funcionalidades como: 
+- Adição, edição e exclusão de filmes;
+- Listagem do catálogo de filmes do usuário;
+- Cadastro e autenticação de usuário por e-mail ou conta Google;
+
+
+Projeto educacional
+Desenvolvido durante o Bootcamp da SoulCode de FullStack React + Node
+
+
+
+
+
+
+## Deploy
+
+Para acessar o deploy desse projeto, acesse:
+
+https://XXXXXXX
+
+
+
+
+## Autores
+
+- [@leoo-tech](https://github.com/leoo-tech)
+- [@miriamhwork](https://github.com/miriamhwork)
+- [@william-amos-alves](https://github.com/william-amos-alves)

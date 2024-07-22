@@ -13,7 +13,7 @@ export default function Ajuda() {
                         <Accordion.Header>o que é o Já vi?</Accordion.Header>
                         <Accordion.Body>
                             <p>
-                                Este é uma biblioteca pessoal para catálogar os filmes que você já assistiu, ou deseja assistir. Você pode adicionar, editar e excluir. Além disso, você pode marcar os filmes como favoritos, filtrar por categoria e avaliar.
+                                Esta é uma biblioteca pessoal para catálogar os filmes que você já assistiu, ou deseja assistir. Você pode adicionar, editar e excluir. Além disso, você pode marcar os filmes como favoritos, filtrar por categoria e avaliar.
                             </p>
                         </Accordion.Body>
                     </Accordion.Item>
@@ -35,7 +35,7 @@ export default function Ajuda() {
                     </Accordion.Item>
                 </Accordion>
                 <hr />
-                <Alert className="mt-5 me-1 pt-10 text-center" variant="warning">Em manutenção. Ficou com mais alguma dúvida? tem alguma sugestão? Entre em contato conosco abaixo</Alert>
+                <Alert className="mt-5 me-1 pt-10 text-center" variant="warning">Em manutenção. Ficou com mais alguma dúvida? Tem alguma sugestão? Entre em contato conosco abaixo</Alert>
                 <section className="botoes ms-auto">
                     <Button className="mt-1 me-1" variant="outline-light" as={Link} to='/' >Inicio</Button>
                     <Button className="mt-1 me-1" variant="outline-light" as={Link} to='/contato' >Entre em contato</Button>
