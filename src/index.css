@@ -61,3 +61,14 @@ body {
 .invalid {
   color: red;
 }
+
+.form-section {
+  width: 320px;
+  margin: 16px auto; 
+}
+
+.imagem-notfound{
+  text-align: center;
+  height: 72vh;
+
+}
