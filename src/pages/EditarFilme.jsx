@@ -92,7 +92,7 @@ function EditarFilme() {
                     className="form-select"
                     {...register("categoria")}
                     >
-                        <option value="Ação">Ação"</option>
+                        <option value="Ação">Ação</option>
                         <option value="Aventura">Aventura</option>
                         <option value="Documentário">Comédia</option>
                         <option value="Documentário">Documentário</option>
