@@ -45,3 +45,15 @@ export async function getFilmesUsuario(idUsuario) {
 
     return filmes;
 }
+
+export async function getFilmesPorCategoriaUsuario(idUsuario, categoria) {
+    const filtro = query(filmesCol, where("idUsuario", "==", idUsuario), where("categoria", "==", categoria));
+    const snapshot = await getDocs(filtro);
+    const filmes = [];
+
+    snapshot.forEach(doc => {
+        filmes.push({ ...doc.data(), id: doc.id });
+    });
+
+    return filmes;
+}

@@ -1,23 +1,32 @@
-import { Badge, Button, Card, Container } from "react-bootstrap";
+import { Badge, Button, Card, Container, Dropdown } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { deleteFilme, getFilmesUsuario } from "../firebase/tarefas";
+import { getFilmesUsuario, deleteFilme, getFilmesPorCategoriaUsuario } from "../firebase/tarefas";
 import { UsuarioContext } from "../contexts/UsuarioContext";
 import { useState, useEffect, useContext } from "react";
 import Loader from "../components/Loader";
 import toast from "react-hot-toast";
 
-
 function Catalogo() {
     const [filmes, setFilmes] = useState(null);
+    const [categoriaSelecionada, setCategoriaSelecionada] = useState(null);
     const navigate = useNavigate();
     const usuario = useContext(UsuarioContext);
-    
-    function carregarFilmes() {
-        if(usuario) {
-            getFilmesUsuario(usuario.uid).then((resultados) => {
-                console.log(resultados);
-                setFilmes(resultados);
-            })
+
+    async function carregarFilmes(categoria = null) {
+        if (usuario) {
+            try {
+                let filmesCarregados = [];
+
+                if (categoria) { 
+                    filmesCarregados = await getFilmesPorCategoriaUsuario(usuario.uid, categoria); // se o usuário escolher para filtrar exibe só a categoria escolhida
+                } else {
+                    filmesCarregados = await getFilmesUsuario(usuario.uid);
+                }
+
+                setFilmes(filmesCarregados);
+            } catch (error) {
+                console.error("Erro ao carregar filmes:", error);
+            }
         }
     }
 
@@ -44,6 +53,65 @@ function Catalogo() {
             <Container>
                 <h1 className="m-5">Seu catálogo de filmes</h1>
                 <Link className="btn btn-outline-primary ms-5" to="/filmes/adicionar">Adicionar filme</Link>
+
+                {/* Filtro para selecionar os filmes por categoria */}
+                <Dropdown className="ms-5 mt-3">
+                    <Dropdown.Toggle variant="outline-primary" id="dropdown-basic">
+                        Filtrar por Categoria
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada(null);
+                            carregarFilmes();
+                        }}>Todos</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Ação");
+                            carregarFilmes("Ação");
+                        }}>Ação</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Aventura");
+                            carregarFilmes("Aventura");
+                        }}>Aventura</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Comédia");
+                            carregarFilmes("Comédia");
+                        }}>Comédia</Dropdown.Item>                        
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Documentário");
+                            carregarFilmes("Documentário");
+                        }}>Documentário</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Drama");
+                            carregarFilmes("Drama");
+                        }}>Drama</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Ficção Científica");
+                            carregarFilmes("Ficção Científica");
+                        }}>Ficção</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Infantil/Desenho");
+                            carregarFilmes("Infantil/Desenho");
+                        }}>Infantil/Desenho</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Musical");
+                            carregarFilmes("Musical");
+                        }}>Musical</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Romance");
+                            carregarFilmes("Romance");
+                        }}>Romance</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Suspense");
+                            carregarFilmes("Suspense");
+                        }}>Suspense</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {
+                            setCategoriaSelecionada("Terror");
+                            carregarFilmes("Terror");
+                        }}>Terror</Dropdown.Item>       
+                    </Dropdown.Menu>
+                </Dropdown>
+
                 {filmes ? <section className="mt-3">
                     {filmes.map((filme) => {
                         return <Card key={filme.id} className="m-5 p-3">

@@ -86,7 +86,7 @@ function EditarFilme() {
                     </label>
                 </div>
                 <div>
-                    <label htmlFor="categoria">Categoria</label>
+                <label htmlFor="categoria">Categoria</label>
                     <select 
                     id="categoria" 
                     className="form-select"
@@ -94,10 +94,14 @@ function EditarFilme() {
                     >
                         <option value="Ação">Ação"</option>
                         <option value="Aventura">Aventura</option>
+                        <option value="Documentário">Comédia</option>
                         <option value="Documentário">Documentário</option>
                         <option value="Drama">Drama</option>
                         <option value="Ficção Científica">Ficção Científica</option>
+                        <option value="Ficção Científica">Infantil/Desenho</option>
+                        <option value="Documentário">Musical</option>
                         <option value="Romance">Romance</option>
+                        <option value="Documentário">Suspense</option>
                         <option value="Terror">Terror</option>
                     </select>
                 </div>
