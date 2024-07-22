@@ -41,12 +41,12 @@ function Catalogo() {
 
     return (
         <main>
-            <Container className="mt-2">
+            <Container>
                 <h1 className="m-5">Seu catálogo de filmes</h1>
                 <Link className="btn btn-outline-primary ms-5" to="/filmes/adicionar">Adicionar filme</Link>
                 {filmes ? <section className="mt-3">
                     {filmes.map((filme) => {
-                        return <Card key={filme.id} className="m-5">
+                        return <Card key={filme.id} className="m-5 p-3">
                             <Card.Body>
                                 <Card.Title>{filme.titulo}</Card.Title>
                                 <Card.Text>{filme.diretor}</Card.Text>
@@ -58,10 +58,18 @@ function Catalogo() {
                                     : <Badge pill bg="danger">Quero assistir</Badge>}
                                 </div>
                             </Card.Body>
-                            <Button variant="outline-primary" onClick={() => {
-                            navigate(`/filmes/editar/${filme.id}`);
-                            }}>Editar</Button>
-                            <Button variant="outline-secondary" onClick={() => deletarFilme(filme.id)}>Excluir</Button>
+                            <div className="d-flex flex-wrap grid gap-3">
+                                <Button variant="outline-primary" 
+                                    onClick={() =>
+                                    navigate(`/filmes/editar/${filme.id}`)}
+                                    >Editar
+                                </Button>
+                                <Button variant="outline-secondary" 
+                                    onClick={() => 
+                                    deletarFilme(filme.id)}
+                                    >Excluir
+                                </Button>
+                            </div>
                         </Card>
                     })}
                 </section> : <Loader />}

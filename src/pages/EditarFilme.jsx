@@ -53,7 +53,7 @@ function EditarFilme() {
                     className="form-control" 
                     {...register("titulo", {required: true, maxLength: 200})}
                     />
-                    {errors.titulo && <small className="invalid">O título é inválido!</small>}
+                    {errors.titulo && <small className="invalid">Campo obrigatório!</small>}
                 </div>
                 <div>
                 <label htmlFor="diretor">Diretor</label>
@@ -63,7 +63,7 @@ function EditarFilme() {
                     className="form-control" 
                     {...register("diretor", {required: true, maxLength: 200})}
                     />
-                    {errors.titulo && <small className="invalid">O !</small>}
+                    {errors.titulo && <small className="invalid">Campo obrigatório!</small>}
                 </div>
                 <div>
                     <label htmlFor="dataConclusao">Ano de lançamento</label>
