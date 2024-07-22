@@ -23,7 +23,7 @@ Desenvolvido durante o Bootcamp da SoulCode de FullStack React + Node
 
 Para acessar o deploy desse projeto, acesse:
 
-https://XXXXXXX
+https://semana-6-catalogos.firebaseapp.com/
 
 
 
